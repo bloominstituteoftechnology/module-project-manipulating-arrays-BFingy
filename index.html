@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Manipullating Arrays Solution</title>
+  <title>Manipulating Arrays Solution</title>
 </head>
 
 <body>
@@ -32,7 +32,20 @@
     // 🧠 As you have done in the past, declare a variable before you start looping, to accumulate the result.
     function sumNumsFor(nums) {
 
+      let added = 0;
+
+      for (let i = 0; i < nums.length; i++) {
+        let value = nums[i]
+        if (typeof value === 'number') {
+          if (value === 13) {
+          return "I'm too superstitious!"
+          }
+          added += value
+        }         
+      }
+      return added
     }
+   
 
     // 👉 CHALLENGE 2
     // 🧠 The function stripVowels takes a string, strips all lowcase vowel letters (a,e,i,o,u) from it and returns it.
@@ -40,17 +53,45 @@
     // stripVowels('Lady Gaga') // should return 'Ldy Gg'
     // ❗ Notes:
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the characters of the string.
-    function stripVowels(str) {
 
-    }
+
+    function stripVowels(str) {
+      const split = str.split('')
+      const pulled = [];
+
+      for (let i = 0; i < split.length; i++) {
+        const indy = split[i]
+        if (
+          indy !== 'a' &&
+          indy !== 'e' &&
+          indy !== 'i' &&
+          indy !== 'o' &&
+          indy !== 'u') {
+            pulled.push(indy)                      
+          }              
+        }
+        return pulled.join('')
+      }
 
     // 👉 CHALLENGE 3
     // 🧠 Reimplement sumNumsFor using a while loop instead of a for loop.
     // 🧠 Examples of usage:
     // sumNumsWhile([1, 2, 3]) // should return 6
     // sumNumsWhile([1, 2, 13]) // should return "I'm too superstitious!"
-    function sumNumsWhile() {
-
+    function sumNumsWhile(nums) {
+      let i = 0
+      let added = 0
+      while (i < nums.length) {
+        let value = nums[i]
+        if (typeof value === 'number') {
+          if (value === 13) {
+          return "I'm too superstitious!"
+          }
+          added += value         
+        }
+        i++               
+      }
+      return added 
     }
 
     // 👉 CHALLENGE 4
